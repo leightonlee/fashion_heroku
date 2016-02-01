@@ -60,7 +60,6 @@ def create_accessories(count):
 
 if __name__ == '__main__':
     logging.info("Creating DB")
-    db.drop_all()
     db.create_all()
     logging.info("Populating DB")
     populate_db()
