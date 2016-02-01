@@ -90,8 +90,8 @@ def get_image(image_name):
     # gets the path of the image in the images folder
     image_path = url_for('img', image_name)
     # verifies that the image exists
-    if not os.path.isfile(image_path):
-        return None, codes.not_found
+    #if not os.path.isfile(image_path):
+    #    return None, codes.not_found
     # sends the image
     return send_file(image_path), codes.ok
 
