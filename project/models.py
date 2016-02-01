@@ -1,4 +1,4 @@
-from app import db
+from project import db
 
 
 class FashionItem(db.Model):

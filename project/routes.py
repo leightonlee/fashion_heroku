@@ -4,14 +4,7 @@ from random import randint
 from requests import codes
 
 # import img as IMAGES
-from fashion_items import FashionItem
-
-
-def validate(page):
-    value = int(page)
-    if value <= 0:
-        raise ValueError
-    return value
+from models import FashionItem
 
 
 def create_routes(app):
@@ -34,7 +27,7 @@ def create_routes(app):
             # validates the page
             validated_page = validate(page)
             # gets the list of fashion items for the page
-            items = app.fashion_store.get_fashion_items(validated_page, 20)
+            items = get_fashion_items(validated_page, 20)
             # randomizes the page of items
             random_list = randomize_list(items)
         except ValueError:
@@ -54,6 +47,13 @@ def create_routes(app):
  #           return None, codes.not_found
         # sends the image
         return None #send_file(image_path), codes.ok
+
+
+def validate(page):
+    value = int(page)
+    if value <= 0:
+        raise ValueError
+    return value
 
 
 def get_fashion_items(page, items_per_page):

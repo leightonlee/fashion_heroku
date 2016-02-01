@@ -1,5 +1,5 @@
-from app import db
-from fashion_items import FashionItem
+from project import db
+from project.models import FashionItem
 
 
 def populate_db():
@@ -7,7 +7,6 @@ def populate_db():
     Populates the db with some data
     :return:
     """
-    items = list()
     db.session.add(FashionItem(
         "Hat",
         "It's a hat dude. What more do you want",
