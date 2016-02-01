@@ -63,7 +63,7 @@ def home():
     """
     Gets the home page
     """
-    logging.debug("Home Touched!")
+    logging.info("Home Touched!")
     return render_template("index.html")
 
 
