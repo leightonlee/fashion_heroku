@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        var $FASHION_ITEMS = []
+        function onDataReceived (data){
+            console.log(data);
+            console.log($.parseJSON(data));
+            var temp = $.parseJSON(data).items;
+            console.log(temp)
+            $.each($.parseJSON(data).items, function(idx, obj) {
+                $("p").append(obj.author + " ");
+            });
+        };
+
+        $("p").append("x");
+        $.getJSON("/fashion/1", onDataReceived)
+    });
+    </script>
+</head>
+<body>
+
+<p>Result</p>
+</body>
+</html>
