@@ -59,5 +59,7 @@ def create_accessories(count):
 
 
 if __name__ == '__main__':
+    logging.debug("Creating DB")
     db.create_all()
+    logging.debug("Populating DB")
     populate_db()

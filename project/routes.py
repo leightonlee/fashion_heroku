@@ -2,6 +2,7 @@ from flask import send_file, jsonify, render_template
 import os
 from random import randint
 from requests import codes
+import logging
 
 # import img as IMAGES
 from models import FashionItem
@@ -16,6 +17,7 @@ def create_routes(app):
         """
         Gets the home page
         """
+        logging.debug("Home Touched!")
         return render_template("index.html")
 
     @app.route('/fashion/<page>', methods=["GET"])
