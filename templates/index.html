@@ -6,7 +6,7 @@
     $(document).ready(function() {
         var $FASHION_ITEMS = []
         function onDataReceived (data){
-            $.each($.parseJSON(data).items, function(idx, obj) {
+            $.each(data.items, function(idx, obj) {
                 $("p").append(obj.author + " ");
             });
         };
