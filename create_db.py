@@ -1,7 +1,7 @@
 #!flask/bin/python
-from apps import app
-from app.fashion_items import FashionItem
-from app.fashion_store import FashionStore
+from app import app
+from fashion_items import FashionItem
+from fashion_store import FashionStore
 
 
 def populate_db():

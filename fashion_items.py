@@ -1,14 +1,14 @@
-from ..apps import app
+from app import db
 
 
-class FashionItem(app.db.Model):
+class FashionItem(db.Model):
     __tablename__ = 'FashionItem'
-    id = app.db.Column(app.db.Integer, primary_key=True, autoincrement=True)
-    title = app.db.Column(app.db.String(200))
-    blurb = app.db.Column(app.db.String(1000))
-    author = app.db.Column(app.db.String(200))
-    thumbnail_url = app.db.Column(app.db.String(200))
-    details_url = app.db.Column(app.db.String(200))
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    title = db.Column(db.String(200))
+    blurb = db.Column(db.String(1000))
+    author = db.Column(db.String(200))
+    thumbnail_url = db.Column(db.String(200))
+    details_url = db.Column(db.String(200))
 
     def __init__(self,
                  title,

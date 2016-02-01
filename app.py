@@ -4,16 +4,17 @@ import os
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
 
-from app.fashion_routes import create_routes
-from app.fashion_store import create_fashion_store
+from fashion_routes import create_routes
+from fashion_store import create_fashion_store
 
 app = Flask(__name__)
+db = SQLAlchemy(app)
 
 
 def configure_app():
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ["DATABASE_URL"]
     create_routes(app)
     create_fashion_store(app)
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ["DATABASE_URL"]
     app.db = SQLAlchemy(app)
 
 

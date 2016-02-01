@@ -1,5 +1,4 @@
-#!flask/bin/python
-from .fashion_items import FashionItem
+from fashion_items import FashionItem
 
 
 class FashionStore():
