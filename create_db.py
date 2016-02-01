@@ -1,12 +1,15 @@
 from project import db
 from project.models import FashionItem
 
+import logging
+
 
 def populate_db():
     """
     Populates the db with some data
     :return:
     """
+    logging.debug("Populating DB")
     db.session.add(FashionItem(
         "Hat",
         "It's a hat dude. What more do you want",
