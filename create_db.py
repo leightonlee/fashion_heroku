@@ -16,6 +16,7 @@ def populate_db():
         "Hat Man",
         "pikachu.png",
         "http://HatsOwnYou.com"))
+    db.session.commit()
     # Populates a fashion item entry with a non-existing picture
     db.session.add(FashionItem(
         "Glove",
@@ -23,6 +24,7 @@ def populate_db():
         "Glove Girl",
         "non-existent.png",
         "http://GlovesForGirls.com"))
+    db.session.commit()
     # Populates a fashion item entry with more than 32 words in the blurb
     db.session.add(FashionItem(
         "Scarf",
@@ -32,15 +34,12 @@ def populate_db():
         "Scarf Stranger",
         "pikachu.png",
         "http://www.StrangeScarves.com"))
-
-    generic_items = create_accessories(110)
-    for item in generic_items:
-        db.session.add(item)
     db.session.commit()
 
-
-def add_fashion_item(item):
-    db.session.add(item)
+    generic_items = create_accessories(65)
+    for item in generic_items:
+        db.session.add(item)
+        db.session.commit()
 
 
 def create_accessories(count):
