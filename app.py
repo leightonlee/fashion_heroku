@@ -4,8 +4,8 @@ import os
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
 
-from fashion_routes import create_routes
-from fashion_store import create_fashion_store
+from .fashion_routes import create_routes
+from .fashion_store import create_fashion_store
 
 app = Flask(__name__)
 db = SQLAlchemy(app)
