@@ -1,5 +1,5 @@
-from project import db
-from project.models import FashionItem
+from app import db
+from app import FashionItem
 
 import logging
 
