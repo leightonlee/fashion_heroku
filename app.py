@@ -6,8 +6,6 @@ import os
 
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
-# import img as IMAGES
-
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ["DATABASE_URL"]
@@ -63,7 +61,6 @@ def home():
     """
     Gets the home page
     """
-    logging.info("Home Touched!")
     return render_template("index.html")
 
 
@@ -91,12 +88,12 @@ def get_image(image_name):
     Gets an image for a fashion item
     """
     # gets the path of the image in the images folder
-    #        image_path = os.path.join(os.path.dirname(IMAGES.__file__), image_name)
+    image_path = "/img/{}".format(image_name)
     # verifies that the image exists
-    #       if not os.path.isfile(image_path):
-    #           return None, codes.not_found
+    if not os.path.isfile(image_path):
+        return None, codes.not_found
     # sends the image
-    return None #send_file(image_path), codes.ok
+    return send_file(image_path), codes.ok
 
 
 def validate(page):
