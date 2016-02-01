@@ -4,6 +4,7 @@ from random import randint
 from requests import codes
 
 # import img as IMAGES
+from fashion_items import FashionItem
 
 
 def validate(page):
@@ -53,6 +54,20 @@ def create_routes(app):
  #           return None, codes.not_found
         # sends the image
         return None #send_file(image_path), codes.ok
+
+
+def get_fashion_items(page, items_per_page):
+    """
+    Retrieves a list of fashion items from the db
+    :param page: Page of items
+    :param items_per_page: number of items per page
+    :return: List of fashion items
+    """
+    # Gets a subset of fashion items based on the page and items per page
+    start_index = (page - 1) * items_per_page
+    end_index = start_index + items_per_page
+    items = FashionItem.query.order_by(FashionItem.id)[start_index:end_index]
+    return [item.to_dict() for item in items]
 
 
 def randomize_list(items):
