@@ -1,4 +1,4 @@
-from fashion_heroku.app import app
+from ..apps import app
 
 
 class FashionItem(app.db.Model):

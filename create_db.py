@@ -1,6 +1,7 @@
-from fashion_heroku.app import app
-from fashion_heroku.model.fashion_item import FashionItem
-from fashion_heroku.store.fashion_store import FashionStore
+#!flask/bin/python
+from apps import app
+from app.fashion_items import FashionItem
+from app.fashion_store import FashionStore
 
 
 def populate_db():

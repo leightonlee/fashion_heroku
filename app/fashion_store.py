@@ -1,4 +1,5 @@
-from fashion_heroku.model.fashion_item import FashionItem
+#!flask/bin/python
+from .fashion_items import FashionItem
 
 
 class FashionStore():
