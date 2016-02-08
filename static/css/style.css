@@ -1,0 +1,17 @@
+#container {
+    width: 100%;
+    margin: auto;
+}
+
+#container > div {
+    border-style: solid;
+    border-color: #ff0
+    background-color: #fff;
+    width: 220px;
+    padding: 2px;
+}
+
+#container > div img {
+    padding: 0px;
+    display: block;
+}

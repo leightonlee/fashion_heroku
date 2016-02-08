@@ -1,25 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <style type="text/css">
-        #container {
-            width: 100%;
-            margin: auto;
-        }
-
-        #container > div {
-            border-style: solid;
-            border-color: #ff0
-            background-color: #fff;
-            width: 220px;
-            padding: 2px;
-        }
-
-        #container > div img {
-        padding: 0px;
-        display: block;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.pinto.js') }}"></script>
     <script>
