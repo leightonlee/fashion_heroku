@@ -1,7 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <style type="text/css">
+        #container {
+            width: 100%;
+            margin: auto;
+        }
+
+        #container > div {
+            background-color: #fff;
+            width: 220px;
+            padding: 2px;
+            margin: 5px;
+        }
+
+        #container > div img {
+        padding: 0px;
+        display: block;
+        width: 100%;
+        }
+    </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.pinto.js') }}"></script>
     <script>
     function create_fashion_item(item){
         console.log(item);
@@ -30,6 +50,9 @@
     </script>
 </head>
 <body>
-<div id="container">TEST!</div>
+<div id="container"></div>
+<script type="text/javascript">
+    $('#container').pinto();
+</script>
 </body>
 </html>

@@ -88,10 +88,7 @@ def get_image(image_name):
     Gets an image for a fashion item
     """
     # gets the path of the image in the images folder
-    image_path = app.root_path + '/img/' + image_name
-    # verifies that the image exists
-    if not os.path.isfile(image_path):
-        return None, codes.not_found
+    image_path = app.root_path + '/static/img/' + image_name
     return send_file(image_path), codes.ok
 
 
