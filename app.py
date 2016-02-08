@@ -1,11 +1,10 @@
-from flask import jsonify, render_template, send_file
-from random import randint
-from requests import codes
-import logging
 import os
+from random import randint
 
-from flask import Flask
+from flask import Flask, jsonify, render_template, send_file
 from flask.ext.sqlalchemy import SQLAlchemy
+from requests import codes
+
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ["DATABASE_URL"]
@@ -13,6 +12,9 @@ db = SQLAlchemy(app)
 
 
 class FashionItem(db.Model):
+    """
+    Model for a fashion item.
+    """
     __tablename__ = 'FashionItem'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     title = db.Column(db.String(200))
@@ -92,10 +94,14 @@ def get_image(image_name):
     try:
         return send_file(image_path), codes.ok
     except:
+        # Unable to get the file. Sending a not found image instead.
         return send_file(app.root_path + '/static/img/not-found.png'), codes.not_found
 
 
 def validate(page):
+    """
+    Validates that the page is greater than 0
+    """
     value = int(page)
     if value <= 0:
         raise ValueError
