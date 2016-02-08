@@ -23,7 +23,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.pinto.js') }}"></script>
     <script>
+    // Page of fashion items
     var page = 1
+
+    // Creates a div with all the info from the item
     function createFashionItem(item) {
         var fashion_item = $('<div/>', {
             text:   "Title: " + item.title});
@@ -38,43 +41,48 @@
         return fashion_item;
     }
 
+    // Function to append the fashion items to the container
+    // Parameter: data - a list of fashion items
     function onDataReceived (data) {
         $.each(data.items, function(idx, obj) {
             $("#container").append(createFashionItem(obj));
         });
+        // bug with pinto where you need to trigger resize or it won't
+        // do it's layout in initial load.
         $(window).trigger('resize');
-        console.log("Finished adding items to container");
     };
 
+    // Function to retrieve the next set of fashion items
     function getFashionItems() {
-        console.log("Getting fashion page: " + page);
         $.getJSON("/fashion/" + page, onDataReceived);
-        console.log("finished getting json")
         page += 1;
-        console.log("finished incrementing page")
     }
 
+    // Initial setup
     $(document).ready(function() {
+        // Get initial set of items
         getFashionItems();
-        $('#container').pinto({});
+        // set the container to use pinto
+        // pinto is a layout js plugin
+        $('#container').pinto({
+            gapX: 15,
+            gapY: 15
+        });
     });
 
+    // On scroll, check if the page is at the bottom.
+    // If it is, get more fashion items
     $(window).on("scroll", function() {
         var scrollHeight = $(document).height();
         var scrollPosition = $(window).height() + $(window).scrollTop();
-        console.log("Scroll Height: " + scrollHeight);
-        console.log("Scroll Position: " + scrollPosition);
         if ((scrollHeight == scrollPosition)) {
-            console.log("End of page!");
             getFashionItems();
         }
-        console.log("Finished Pinto");
-        console.log("Finished window scroll");
     });
     </script>
 </head>
 <body>
+// Container
 <div id="container"></div>
-
 </body>
 </html>
