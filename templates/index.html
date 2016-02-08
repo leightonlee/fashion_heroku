@@ -12,8 +12,8 @@
             border-color: #ff0
             background-color: #fff;
             width: 220px;
-            padding: 2px;
-            margin: 5px;
+            padding: 10px;
+            margin: 10px;
         }
 
         #container > div img {
@@ -47,13 +47,11 @@
 
     $(document).ready(function() {
         $.getJSON("/fashion/1", onDataReceived)
+        $('#container').pinto();
     });
     </script>
 </head>
 <body>
 <div id="container"></div>
-<script type="text/javascript">
-    $('#container').pinto();
-</script>
 </body>
 </html>
