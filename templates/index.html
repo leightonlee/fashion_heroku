@@ -70,6 +70,8 @@
     $(window).on("scroll", function() {
         var scrollHeight = $(document).height();
         var scrollPosition = $(window).height() + $(window).scrollTop();
+        console.log("Scroll Height: " + scrollHeight);
+        console.log("Scroll Position: " + scrollPosition);
         if ((scrollHeight - scrollPosition) < 30) {
             console.log("End of page!");
             getFashionItems();
