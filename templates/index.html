@@ -9,10 +9,12 @@
             text:   "Title: " + item.title});
         fashion_item.append("<br>");
         fashion_item.append("Author: " + item.author);
+        fashion_item.append("<br>");
         fashion_item.append("Description: " + item.blurb);
         fashion_item.append("<br>");
         fashion_item.append("<img src=/fashion/image/" + item.thumbnail_url + ">");
-        fashion_item.append("Additional info: " + item.details_url)
+        fashion_item.append("<br>");
+        fashion_item.append("Additional info: <a href=\"" + item.details_url + "\"/>");
         return fashion_item
     }
 
