@@ -7,7 +7,7 @@
         var $FASHION_ITEMS = []
         function onDataReceived (data){
             $.each(data.items, function(idx, obj) {
-                var $fashion_item = "<div>test1</div>"
+                var $fashion_item = "<div>obj.author</div>"
                 $("#container").append($fashion_item);
             });
         };
