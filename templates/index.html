@@ -5,10 +5,15 @@
     <script>
     function create_fashion_item(item){
         console.log(item);
-        return $('<div/>', {
-            text:   "Title: " + item.title +
-                    "<br>Author: " +  item.author
-        });
+        var fashion_item = $('<div/>', {
+            text:   "Title: " + item.title});
+        fashion_item.append("<br>");
+        fashion_item.append("Author: " + item.author);
+        fashion_item.append("Description: " + item.blurb);
+        fashion_item.append("<br>");
+        fashion_item.append("<img src=/fashion/image/" + item.thumbnail_url + ">");
+        fashion_item.append("Additional info: " + item.details_url)
+        return fashion_item
     }
 
     function onDataReceived (data){
