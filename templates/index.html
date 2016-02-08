@@ -24,7 +24,6 @@
     <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.pinto.js') }}"></script>
     <script>
     var page = 1
-    var retrieving_data = false
     function createFashionItem(item) {
         var fashion_item = $('<div/>', {
             text:   "Title: " + item.title});
@@ -43,24 +42,20 @@
         $.each(data.items, function(idx, obj) {
             $("#container").append(createFashionItem(obj));
         });
-        $('#container').pinto({
-            gapX: 15,
-            gapY: 15,
-        });
     };
 
     function getFashionItems() {
-        if(retrieving_data == false) {
-            retrieving_data = true
-            console.log("Getting fashion page: " + page);
-            $.getJSON("/fashion/" + page, onDataReceived);
-            page += 1;
-            retrieving_data = false;
-        }
+        console.log("Getting fashion page: " + page);
+        $.getJSON("/fashion/" + page, onDataReceived);
+        page += 1;
     }
 
     $(document).ready(function() {
         getFashionItems();
+        $('#container').pinto({
+            gapX: 15,
+            gapY: 15,
+        });
     });
     </script>
 </head>
@@ -72,7 +67,7 @@
         var scrollPosition = $(window).height() + $(window).scrollTop();
         console.log("Scroll Height: " + scrollHeight);
         console.log("Scroll Position: " + scrollPosition);
-        if ((scrollHeight - scrollPosition) < 30) {
+        if ((scrollHeight == scrollPosition)) {
             console.log("End of page!");
             getFashionItems();
         }
