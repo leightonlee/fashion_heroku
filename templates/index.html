@@ -48,7 +48,7 @@
             $("#container").append(createFashionItem(obj));
         });
         // bug with pinto where you need to trigger resize or it won't
-        // do it's layout in initial load.
+        // do it's layout on initial load.
         $(window).trigger('resize');
     };
 
@@ -82,7 +82,6 @@
     </script>
 </head>
 <body>
-// Container
 <div id="container"></div>
 </body>
 </html>
