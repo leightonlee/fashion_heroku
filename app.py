@@ -1,4 +1,4 @@
-from flask import send_file, jsonify, render_template, url_for
+from flask import jsonify, render_template, send_file
 from random import randint
 from requests import codes
 import logging
@@ -88,12 +88,11 @@ def get_image(image_name):
     Gets an image for a fashion item
     """
     # gets the path of the image in the images folder
-    image_path = url_for('img', image_name)
+    image_path = app.root_path + '/img/' + image_name
     # verifies that the image exists
-    #if not os.path.isfile(image_path):
-    #    return None, codes.not_found
-    # sends the image
-    return send_file(image_name), codes.ok
+    if not os.path.isfile(image_path):
+        return None, codes.not_found
+    return send_file(image_path), codes.ok
 
 
 def validate(page):
