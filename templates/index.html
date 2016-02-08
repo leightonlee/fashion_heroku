@@ -3,12 +3,16 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>
+    function create_fashion_item(item){
+        console.log(item.author);
+        return item.author;
+    }
+
     $(document).ready(function() {
         var $FASHION_ITEMS = []
         function onDataReceived (data){
             $.each(data.items, function(idx, obj) {
-                var $fashion_item = "<div>obj.author</div>"
-                $("#container").append($fashion_item);
+                $("#container").append(create_fashion_item(obj));
             });
         };
         $.getJSON("/fashion/1", onDataReceived)
