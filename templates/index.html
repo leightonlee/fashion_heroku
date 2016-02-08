@@ -55,5 +55,14 @@
 </head>
 <body>
 <div id="container"></div>
+<script>
+    $(window).on("scroll", function() {
+        var scrollHeight = $(document).height();
+        var scrollPosition = $(window).height() + $(window).scrollTop();
+        if ((scrollHeight - scrollPosition) / scrollHeight === 0) {
+            console.log("Scrolled to bottom of page!");
+        }
+    });
+</script>
 </body>
 </html>
