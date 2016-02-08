@@ -42,12 +42,15 @@
     function onDataReceived (data){
         $.each(data.items, function(idx, obj) {
             $("#container").append(create_fashion_item(obj));
+            $('#container').pinto({
+                gapX: 15,
+                gapY: 15,
+            });
         });
     };
 
     $(document).ready(function() {
         $.getJSON("/fashion/1", onDataReceived)
-        $('#container').pinto();
     });
     </script>
 </head>
