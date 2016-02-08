@@ -24,6 +24,7 @@
     <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.pinto.js') }}"></script>
     <script>
     var page = 1
+    var retrieving_data = false
     function createFashionItem(item) {
         var fashion_item = $('<div/>', {
             text:   "Title: " + item.title});
@@ -49,9 +50,13 @@
     };
 
     function getFashionItems() {
-        console.log("Getting fashion page: " + page);
-        $.getJSON("/fashion/" + page, onDataReceived);
-        page += 1;
+        if(retrieving_data == false) {
+            retrieving_data = true
+            console.log("Getting fashion page: " + page);
+            $.getJSON("/fashion/" + page, onDataReceived);
+            page += 1;
+            retrieving_data = false;
+        }
     }
 
     $(document).ready(function() {
