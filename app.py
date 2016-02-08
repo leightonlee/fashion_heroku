@@ -93,7 +93,7 @@ def get_image(image_name):
     #if not os.path.isfile(image_path):
     #    return None, codes.not_found
     # sends the image
-    return send_file(image_path), codes.ok
+    return send_file(image_name), codes.ok
 
 
 def validate(page):
