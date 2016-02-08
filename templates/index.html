@@ -56,7 +56,7 @@
     $(document).ready(function() {
         getFashionItems();
         $('#container').pinto({});
-        $('#container').pinto({});
+        $(window).trigger('resize');
     });
 
     $(window).on("scroll", function() {
