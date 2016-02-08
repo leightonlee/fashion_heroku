@@ -89,7 +89,10 @@ def get_image(image_name):
     """
     # gets the path of the image in the images folder
     image_path = app.root_path + '/static/img/' + image_name
-    return send_file(image_path), codes.ok
+    try:
+        return send_file(image_path), codes.ok
+    except:
+        return send_file(app.root_path + '/static/img/not-found.png'), codes.not_found
 
 
 def validate(page):
