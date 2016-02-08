@@ -53,17 +53,15 @@
     function getFashionItems() {
         console.log("Getting fashion page: " + page);
         $.getJSON("/fashion/" + page, onDataReceived);
+        console.log("finished getting json")
         page += 1;
+        console.log("finished incrementing page")
     }
 
     $(document).ready(function() {
         getFashionItems();
     });
-    </script>
-</head>
-<body>
-<div id="container"></div>
-<script>
+
     $(window).on("scroll", function() {
         var scrollHeight = $(document).height();
         var scrollPosition = $(window).height() + $(window).scrollTop();
@@ -73,7 +71,12 @@
             console.log("End of page!");
             getFashionItems();
         }
+        console.log("Finished window scroll");
     });
-</script>
+    </script>
+</head>
+<body>
+<div id="container"></div>
+
 </body>
 </html>
