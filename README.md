@@ -5,7 +5,7 @@ The github link with the source code is at: https://github.com/leightonlee/fashi
 The Procfile contains a web and an init.
 
 The web process will start up the flask app.  The '/' route will serve index.html.  index.html will
-call /fashion/page/<page> and /fashion/img/<image> to retrieve the json data and images.
+call /fashion/<page> and /fashion/image/<image_name> to retrieve the json data and images.
 
 The init process should create and populate the db.  Since the free version of heroku
 only lets you run one process at a time, I was not able to test if the init process works.
