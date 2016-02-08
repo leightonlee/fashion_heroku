@@ -14,8 +14,8 @@
         fashion_item.append("<br>");
         fashion_item.append("<img src=/fashion/image/" + item.thumbnail_url + ">");
         fashion_item.append("<br>");
-        fashion_item.append("Additional info: <a href=\"" + item.details_url + "\"/>");
-        return fashion_item
+        fashion_item.append("Additional info: <a href=\"" + item.details_url + "\">" + item.details_url + "<a/>");
+        return fashion_item;
     }
 
     function onDataReceived (data){
