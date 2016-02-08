@@ -12,8 +12,7 @@
             border-color: #ff0
             background-color: #fff;
             width: 220px;
-            padding: 10px;
-            margin: 10px;
+            padding: 2px;
         }
 
         #container > div img {
@@ -42,10 +41,10 @@
     function onDataReceived (data){
         $.each(data.items, function(idx, obj) {
             $("#container").append(create_fashion_item(obj));
-            $('#container').pinto({
-                gapX: 15,
-                gapY: 15,
-            });
+        });
+        $('#container').pinto({
+            gapX: 15,
+            gapY: 15,
         });
     };
 
