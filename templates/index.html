@@ -43,11 +43,6 @@
             $("#container").append(createFashionItem(obj));
         });
         console.log("Finished adding items to container");
-        $('#container').pinto({
-            gapX: 15,
-            gapY: 15,
-        });
-        console.log("Finished Pinto");
     };
 
     function getFashionItems() {
@@ -71,6 +66,11 @@
             console.log("End of page!");
             getFashionItems();
         }
+        $('#container').pinto({
+            gapX: 15,
+            gapY: 15,
+        });
+        console.log("Finished Pinto");
         console.log("Finished window scroll");
     });
     </script>
