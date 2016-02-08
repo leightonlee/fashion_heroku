@@ -55,6 +55,7 @@
 
     $(document).ready(function() {
         getFashionItems();
+        $('#container').pinto({});
     });
 
     $(window).on("scroll", function() {
@@ -66,10 +67,6 @@
             console.log("End of page!");
             getFashionItems();
         }
-        $('#container').pinto({
-            gapX: 15,
-            gapY: 15,
-        });
         console.log("Finished Pinto");
         console.log("Finished window scroll");
     });
