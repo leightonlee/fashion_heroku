@@ -23,8 +23,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.pinto.js') }}"></script>
     <script>
-    function create_fashion_item(item){
-        console.log(item);
+    var page = 1
+    function createFashionItem(item) {
         var fashion_item = $('<div/>', {
             text:   "Title: " + item.title});
         fashion_item.append("<br>");
@@ -38,9 +38,9 @@
         return fashion_item;
     }
 
-    function onDataReceived (data){
+    function onDataReceived (data) {
         $.each(data.items, function(idx, obj) {
-            $("#container").append(create_fashion_item(obj));
+            $("#container").append(createFashionItem(obj));
         });
         $('#container').pinto({
             gapX: 15,
@@ -48,8 +48,13 @@
         });
     };
 
+    function getFashionItems() {
+        $.getJSON("/fashion/" + page, onDataReceived);
+        page += 1;
+    }
+
     $(document).ready(function() {
-        $.getJSON("/fashion/1", onDataReceived)
+        getFashionItems();
     });
     </script>
 </head>
@@ -60,7 +65,7 @@
         var scrollHeight = $(document).height();
         var scrollPosition = $(window).height() + $(window).scrollTop();
         if ((scrollHeight - scrollPosition) / scrollHeight === 0) {
-            console.log("Scrolled to bottom of page!");
+            getFashionItems();
         }
     });
 </script>
