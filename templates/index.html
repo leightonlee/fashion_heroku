@@ -19,7 +19,7 @@
         fashion_item.append("Description: " + item.blurb);
         fashion_item.append("<br>");
         fashion_item.append("<img src=/fashion/image/" + item.thumbnail_url + ">").find('img').load(function() {
-            console.log("img loaded")
+            // Recalculate layout after the image is loaded
             $(window).trigger('resize');
         })
         fashion_item.append("<br>");
