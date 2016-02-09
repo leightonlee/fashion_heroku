@@ -17,7 +17,7 @@
         fashion_item.append("<br>");
         fashion_item.append("Description: " + item.blurb);
         fashion_item.append("<br>");
-        fashion_item.append("<img src=/fashion/image/" + item.thumbnail_url + ">");
+        fashion_item.append("<img id="img" src=/fashion/image/" + item.thumbnail_url + ">");
         fashion_item.append("<br>");
         fashion_item.append("Read More: <a href=\"" + item.details_url + "\">" + item.details_url + "<a/>");
         return fashion_item;
@@ -60,6 +60,10 @@
         if ((scrollHeight == scrollPosition)) {
             getFashionItems();
         }
+    });
+
+    $(#img).load(function() {
+        $(window).trigger('resize');
     });
     </script>
 </head>
